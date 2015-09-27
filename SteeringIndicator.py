@@ -21,24 +21,24 @@ class Cross(Frame):
 
     def initUI(self):
 
-        self.parent.title("Simple")
-        self.pack(fill=BOTH, expand=1)
-        
-        canvas = Canvas(self)
-        canvas.create_rectangle(30, 10, 120, 80, 
-                                    outline="#fb0", fill="#fb0")
-        canvas.create_rectangle(150, 10, 240, 80, 
-                                    outline="#f50", fill="#f50")
-        canvas.create_rectangle(270, 10, 370, 80, 
-                                    outline="#05f", fill="#05f")            
-        canvas.pack(fill=BOTH, expand=1)        
+        self.parent.title("Steering Data")
+        self.pack(fill=BOTH, expand=1)     
 
 
 def main():
 
     root = Tk()
-    w, h = root.winfo_screenwidth(), root.winfo_screenheight()
+    # w, h = root.winfo_screenwidth(), root.winfo_screenheight()
+    w, h = 1920, 1080
+    # get value from arduino
+    pos = 0
     root.geometry("%dx%d+300+300" % (w, h))
+    canvas = Canvas(root, width=w, height=h, background="black")
+    canvas.create_text(960, 540, text="+", fill="white")  
+    canvas.create_rectangle(w/2-75+pos, h/2-20, w/2+75+pos, h/2+20, fill="#05f", outline="#05f")
+    canvas.create_rectangle(w/2-20+pos, h/2-75, w/2+20+pos, h/2+75, fill="#05f", outline="#05f")
+    canvas.pack() 
+          
     app = Cross(root)
     root.mainloop()  
 
