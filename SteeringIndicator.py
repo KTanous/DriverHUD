@@ -11,7 +11,6 @@ from Tkinter import Tk, Frame, Canvas, BOTH
 import serial, time
 
 class App(Frame):
-
     def __init__(self, parent):
         Frame.__init__(self, parent, background="black")   
 
@@ -24,16 +23,6 @@ class App(Frame):
         self.parent.title("Steering Data")
         self.pack(fill=BOTH, expand=1)     
         
-class Incrementer:
-    def __init__(self, val):
-        self.val = val
-        
-    def inc(self):
-        self.val = self.val + 1
-
-    
-i = Incrementer(0) 
-
 def main():
     root = Tk()
     # w, h = root.winfo_screenwidth(), root.winfo_screenheight()
